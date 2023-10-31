@@ -25,14 +25,28 @@ def dados():
     artigos = json_data['articles'][:5]
 
 
-    titulo = []
-    descricao = []
-    url = []
+    titulos = []
+    descricoes = []
+    urls = []
     imagens = []
 
-    print(artigos)
+    for artigo in artigos:
+        # titulo
+        titulos.append(translator.translate(artigo['title'], dest='pt_BR').text)
+
+         # descricoes
+        descricoes.append(translator.translate(artigo['description'], dest='pt_BR').text)
+
+         # urls
+        urls.append(artigo['url'])
+
+         # imagens
+        imagens.append(artigo['urlToImage'])
+
+    # retornar o título
+    return [titulos]
 
 
 # chamar a função
-dados()
+print(dados())
 
