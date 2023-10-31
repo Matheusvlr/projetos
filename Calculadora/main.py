@@ -40,8 +40,8 @@ def entrar_valores(evento):
 def calcular():
     global todos_valores
     resultado = eval(todos_valores)
-    
     valor_texto.set(str(resultado))
+    todos_valores = str(resultado)
 
 # função para zerar a tela
 def limpar_tela():
