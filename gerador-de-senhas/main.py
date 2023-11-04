@@ -3,6 +3,7 @@ from tkinter import ttk
 from PIL import ImageTk, Image
 import string
 import random
+from tkinter import messagebox
 
 # cores
 cor1 = "#0a0a0a"  # preta
@@ -78,7 +79,18 @@ def criar_senha():
     comprimento = int(spin.get())
     senha = ''.join(random.sample(combinar, comprimento))
 
-    print(senha)
+    app_senha['text'] = senha
+
+    def copiar_senha():
+        info = senha
+        frame_baixo.clipboard_clear()
+        frame_baixo.clipboard_append(info)
+
+        messagebox.showinfo('sucesso', 'A senha foi copiada com sucesso.')
+
+    # botão para copiar senha
+    botao_copiar_senha = Button(frame_baixo, command=copiar_senha, text='Copiar',width=7, height=2, relief='raised',overrelief='solid', anchor='center', font=('Ivy 9 bold'),bg=cor2, fg=cor1)
+    botao_copiar_senha.grid(row=0, column=2, sticky=NW, padx=5, pady=9, columnspan=1)
 
 # frame de baixo
 
@@ -137,10 +149,6 @@ app_info.grid(row=3, column=1, sticky=NW, padx=2, pady=5)
 botao_gerador_senha = Button(frame_caracteres, command=criar_senha, text='Gerar Senha',width=34, height=1, relief='flat',overrelief='solid', anchor='center', font=('Ivy 10 bold'),bg=cor6, fg=cor2)
 botao_gerador_senha.grid(row=5, column=0, sticky=NSEW, padx=5, pady=11, columnspan=5)
 
-# botão para copiar senha
-botao_copiar_senha = Button(frame_baixo, text='Copiar',width=7, height=2, relief='raised',overrelief='solid', anchor='center', font=('Ivy 9 bold'),bg=cor2, fg=cor1)
-botao_copiar_senha.grid(row=0, column=2, sticky=NW, padx=5, pady=9, columnspan=1)
-
-
-
 janela.mainloop()
+
+
