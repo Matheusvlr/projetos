@@ -25,4 +25,21 @@ janela.resizable(width=FALSE, height=FALSE)
 style= ttk.Style(janela)
 style.theme_use('clam')
 
-janela.mainloop 
+# criação dos frames para divisão da tela
+############################## frame de cima ##############################
+frame_cima = Frame(janela, width=1043, height=50, bg=cor1, relief='flat')
+frame_cima.grid(row=0, column=0)
+
+############################## frame do meio ##############################
+frame_meio = Frame(janela, width=1043, height=361, bg=cor1, pady=20, relief='raised')
+frame_meio.grid(row=1, column=0, pady= 1, padx= 0, sticky=NSEW)
+
+############################## frame de baixo ##############################
+frame_baixo = Frame(janela, width=1043, height=300, bg=cor1, relief='flat')
+frame_baixo.grid(row=2, column=0, pady= 0, padx= 10, sticky=NSEW)
+
+
+
+
+
+janela.mainloop() 
