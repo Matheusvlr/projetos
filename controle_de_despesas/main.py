@@ -227,7 +227,10 @@ def mostrar_renda():
     for item in lista_itens:
         tree.insert('', 'end', values=item)
 
-
 mostrar_renda()
+
+
+
+
 
 janela.mainloop() 
