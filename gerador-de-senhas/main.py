@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import ttk
-from PIL import ImageTk, Image
+from PIL import Image, ImageTk
 import string
 import random
 from tkinter import messagebox
@@ -30,7 +30,7 @@ frame_baixo = Frame(janela, width=295, height=310, bg=cor2, pady=0, padx=0, reli
 frame_baixo.grid(row=1, column=0, sticky=NSEW)
 
 # frame cima
-img = Image.open('C:\\Users\\Matheus\\Documents\\projetos\\gerador-de-senhas\\img\\gerador.png')
+img = Image.open('gerador-de-senhas/gerador.png')
 img = img.resize((55, 55), Image.BICUBIC)
 img = ImageTk.PhotoImage(img)
 
