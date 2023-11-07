@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import Tk, ttk
+from PIL import Image, ImageTk
 
 ################# cores ###############
 cor0 = "#2e2d2b"  
@@ -38,7 +39,15 @@ frame_meio.grid(row=1, column=0, pady= 1, padx= 0, sticky=NSEW)
 frame_baixo = Frame(janela, width=1043, height=300, bg=cor1, relief='flat')
 frame_baixo.grid(row=2, column=0, pady= 0, padx= 10, sticky=NSEW)
 
+# desenvolvendo o frame de cima
 
+# acesso a imagem
+app_img = Image.open('controle_de_despesas/logo.png')
+app_img = app_img.resize((45,45))
+app_img = ImageTk.PhotoImage(app_img)
+
+app_logo = Label(frame_cima, image=app_img, text=' Controle de orçamento', width=900, compound=LEFT, padx=5, relief=RAISED, anchor=NW, font=('Verdana 20 bold'), bg=cor1, fg=cor4)
+app_logo.place(x=0, y=0)
 
 
 
