@@ -1,6 +1,12 @@
 from tkinter import *
 from tkinter import Tk, ttk
 from PIL import Image, ImageTk
+# importando barra de progresso do Tkinter
+from tkinter.ttk import Progressbar
+# importando matplotlib
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import matplotlib.pyplot as plt
+from matplotlib.figure import Figure
 
 ################# cores ###############
 cor0 = "#2e2d2b"  
@@ -46,9 +52,29 @@ app_img = Image.open('controle_de_despesas/logo.png')
 app_img = app_img.resize((45,45))
 app_img = ImageTk.PhotoImage(app_img)
 
-app_logo = Label(frame_cima, image=app_img, text=' Controle de orçamento', width=900, compound=LEFT, padx=5, relief=RAISED, anchor=NW, font=('Verdana 20 bold'), bg=cor1, fg=cor4)
+app_logo = Label(frame_cima, image=app_img, text=' CONTROLE DE ORÇAMENTO', width=900, compound=LEFT, padx=5, relief=RAISED, anchor=NW, font=('Verdana 20 bold'), bg=cor1, fg=cor4)
 app_logo.place(x=0, y=0)
 
+# porcentagem
+def porcentagem():
+    lab_nome = Label(frame_meio, text='Porcentagem de Gastos', height=1, anchor=NW, font=('verdana 12'), bg=cor1, fg=cor4)
+    lab_nome.place(x=7, y=5)
+
+    style = ttk.Style()
+    style.theme_use('default')
+    style.configure('black.Horizontal.TProgressbar', background='#daed6b')
+    style.configure('TProgressbar', thickness=25)
+    barra = Progressbar(frame_meio, length=180, style='black.Horizontal.TProgressbar')
+
+    barra = Progressbar(frame_meio, length=180)
+    barra.place(x=10, y=35)
+    barra['value'] = 50
+
+    valor = 50
+
+    lab_porcentagem = Label(frame_meio, text=f'{valor:,.2f}%', height=1, anchor=NW, font=('verdana 12'), bg=cor1, fg=cor4)
+    lab_porcentagem.place(x=200, y=35)
 
 
+porcentagem()
 janela.mainloop() 
