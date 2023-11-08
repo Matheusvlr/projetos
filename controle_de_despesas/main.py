@@ -7,6 +7,9 @@ from tkinter.ttk import Progressbar
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
+# tkcalendar
+from tkcalendar import Calendar, DateEntry
+from datetime import date
 
 ################# cores ###############
 cor0 = "#2e2d2b"  
@@ -230,7 +233,7 @@ def mostrar_renda():
 mostrar_renda()
 
 
-
+# configurações de despesas
 
 
 janela.mainloop() 
