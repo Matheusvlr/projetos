@@ -27,7 +27,7 @@ colors = ['#5588bb', '#66bbbb','#99bb55', '#ee9944', '#444466', '#bb5555']
 
 # criação da janela
 janela = Tk()
-janela.title()
+janela.title('controle de orçamento')
 janela.geometry('900x650')
 janela.configure(background=cor9)
 janela.resizable(width=FALSE, height=FALSE)
@@ -79,7 +79,7 @@ def porcentagem():
 # função para gráfico de barra
 def grafico_barra():
     lista_categorias =  ['Renda', 'Despesas', 'Saldo']
-    lista_valores = [3000, 2000, 6236]
+    lista_valores = [4500, 2300, 7636]
 
     # fazer figura e atribua objetos de eixo
     figura = plt.Figure(figsize=(4, 3.45), dpi=60)
@@ -118,10 +118,9 @@ def grafico_barra():
     canva = FigureCanvasTkAgg(figura, frame_meio)
     canva.get_tk_widget().place(x=10, y=70)
 
-
 # função de resumo total
 def resumo():
-    valor = [500, 600, 420]
+    valor = [2000, 1300, 700]
 
     l_linha = Label(frame_meio, text='', width=220, height=1, anchor=NW, font=('Arial 1'), bg='#545454')
     l_linha.place(x=309, y=52)
@@ -268,10 +267,55 @@ e_valor_despesas.place(x=110, y=101)
 img_add_despesas = Image.open('controle_de_despesas/add.png')
 img_add_despesas = img_add_despesas.resize((17,17))
 img_add_despesas = ImageTk.PhotoImage(img_add_despesas)
-
 botao_inserir_despesas = Button(frame_operacoes, image=img_add_despesas, text=' Adicionar'.upper(), width=80, compound=LEFT, anchor=NW, font=('Ivy 7 bold'), bg=cor1, fg=cor0, overrelief=RIDGE)
 botao_inserir_despesas.place(x=110, y=131)
 
+# botão de exclusão
+l_excluir = Label(frame_operacoes, text='Excluir ação', height=1, anchor=NW, font=('Ivy 10 bold'), bg=cor1, fg=cor4)
+l_excluir.place(x=10, y=190)
+
+img_delete = Image.open('controle_de_despesas/delete.png')
+img_delete = img_delete.resize((17,17))
+img_delete = ImageTk.PhotoImage(img_delete)
+botao_deletar = Button(frame_operacoes, image=img_delete, text=' Deletar'.upper(), width=80, compound=LEFT, anchor=NW, font=('Ivy 7 bold'), bg=cor1, fg=cor0, overrelief=RIDGE)
+botao_deletar.place(x=110, y=190)
+
+# configurações de receitas
+l_info = Label(frame_configuracao, text='Insira suas receitas', height=1, anchor=NW, font=('Verdana 10 bold'), bg=cor1, fg=cor4)
+l_info.place(x=10, y=10)
+
+# calendário
+l_cal_receitas = Label(frame_configuracao, text='Data', height=1, anchor=NW, font=('Ivy 10 bold'), bg=cor1, fg=cor4)
+l_cal_receitas.place(x=10, y=40)
+e_cal_receitas = DateEntry(frame_configuracao, width=12, background='darkblue', foreground='white', borderwidth=2, year=2022)
+e_cal_receitas.place(x=110, y=41)
+
+# valor
+l_valor_receitas = Label(frame_configuracao, text='Valor total', height=1, anchor=NW, font=('Ivy 10 bold'), bg=cor1, fg=cor4)
+l_valor_receitas.place(x=10, y=70)
+e_valor_receitas = Entry(frame_configuracao, width=14, justify='left', relief='solid',)
+e_valor_receitas.place(x=110, y=71)
+
+# botão de inserção
+img_add_receitas = Image.open('controle_de_despesas/add.png')
+img_add_receitas = img_add_receitas.resize((17,17))
+img_add_receitas = ImageTk.PhotoImage(img_add_receitas)
+botao_inserir_receitas = Button(frame_configuracao, image=img_add_receitas, text=' Adicionar'.upper(), width=80, compound=LEFT, anchor=NW, font=('Ivy 7 bold'), bg=cor1, fg=cor0, overrelief=RIDGE)
+botao_inserir_receitas.place(x=110, y=111)
+
+# operação nova categoria
+l_info = Label(frame_configuracao, text='Categoria', height=1, anchor=NW, font=('Ivy 10 bold'), bg=cor1, fg=cor4)
+l_info.place(x=10, y=160)
+
+e_categoria = Entry(frame_configuracao, width=14, justify='left', relief='solid',)
+e_categoria.place(x=110, y=160)
+
+# botão de inserção
+img_add_categoria = Image.open('controle_de_despesas/add.png')
+img_add_categoria = img_add_categoria.resize((17,17))
+img_add_categoria = ImageTk.PhotoImage(img_add_categoria)
+botao_inserir_receitas = Button(frame_configuracao, image=img_add_categoria, text=' Adicionar'.upper(), width=80, compound=LEFT, anchor=NW, font=('Ivy 7 bold'), bg=cor1, fg=cor0, overrelief=RIDGE)
+botao_inserir_receitas.place(x=110, y=190)
 
 
 
