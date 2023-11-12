@@ -1,15 +1,22 @@
 from tkinter import *
 from tkinter import Tk, ttk
 from PIL import Image, ImageTk
+from tkinter import messagebox
+
 # importando barra de progresso do Tkinter
 from tkinter.ttk import Progressbar
+
 # importando matplotlib
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
+
 # tkcalendar
 from tkcalendar import Calendar, DateEntry
 from datetime import date
+
+# importação das dunções da view
+from view import bar_valores, inserir_categoria, ver_categoria, inserir_receita, inserir_gastos
 
 ################# cores ###############
 cor0 = "#2e2d2b"  
@@ -55,6 +62,38 @@ app_img = ImageTk.PhotoImage(app_img)
 
 app_logo = Label(frame_cima, image=app_img, text=' CONTROLE DE ORÇAMENTO', width=900, compound=LEFT, padx=5, relief=RAISED, anchor=NW, font=('Verdana 20 bold'), bg=cor1, fg=cor4)
 app_logo.place(x=0, y=0)
+
+# definindo tree como gobal
+global tree
+
+# função para inserir categoria
+def inserir_categoria_b():
+    nome = e_categoria.get()
+
+    lista_inserir = [nome]
+
+    for i in lista_inserir:
+        if i == '':
+            messagebox.showerror('Erro', 'Preencha todos os campos')
+            return    
+        
+   # passado lista para a função inserir gastos presente na view     
+    inserir_categoria(lista_inserir)
+
+    messagebox.showinfo('Sucesso', 'Dados inseridos com sucesso')
+
+    e_categoria.delete(0, 'end')
+
+    # buscando os valores da categoria
+    categorias_funcao = ver_categoria()
+    categoria = []
+
+    for i in categorias_funcao:
+        categoria.append(i[1])
+
+    # atualização da lista de categorias
+    combo_categoria_despesas['values'] = (categoria)
+
 
 
 
@@ -316,7 +355,7 @@ e_categoria.place(x=110, y=160)
 img_add_categoria = Image.open('controle_de_despesas/add.png')
 img_add_categoria = img_add_categoria.resize((17,17))
 img_add_categoria = ImageTk.PhotoImage(img_add_categoria)
-botao_inserir_receitas = Button(frame_configuracao, image=img_add_categoria, text=' Adicionar'.upper(), width=80, compound=LEFT, anchor=NW, font=('Ivy 7 bold'), bg=cor1, fg=cor0, overrelief=RIDGE)
+botao_inserir_receitas = Button(frame_configuracao, command=inserir_categoria_b, image=img_add_categoria, text=' Adicionar'.upper(), width=80, compound=LEFT, anchor=NW, font=('Ivy 7 bold'), bg=cor1, fg=cor0, overrelief=RIDGE)
 botao_inserir_receitas.place(x=110, y=190)
 
 
