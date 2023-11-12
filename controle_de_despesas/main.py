@@ -94,7 +94,34 @@ def inserir_categoria_b():
     # atualização da lista de categorias
     combo_categoria_despesas['values'] = (categoria)
 
+# função para inserir receitas
+def inserir_receitas_b():
+    nome = 'Receita'
+    data = e_cal_receitas.get()
+    quantia = e_valor_receitas.get()
 
+    lista_inserir = [nome, data, quantia]
+
+    for i in lista_inserir:
+        if i == '':
+            messagebox.showerror('Erro', 'Preencha todos os campos')
+            return    
+        
+    # chamando a funcção para inseir receitas da view
+    inserir_receita(lista_inserir)
+
+    messagebox.showinfo('Sucesso', 'Dados inseridos com sucesso')
+
+    e_cal_receitas.delete(0, 'end')
+    e_valor_receitas.delete(0, 'end')
+
+    # atualização dos dados
+    mostrar_renda()
+    porcentagem()
+    grafico_barra()
+    resumo()
+    grafico_pie()
+        
 
 
 # porcentagem
@@ -341,7 +368,7 @@ e_valor_receitas.place(x=110, y=71)
 img_add_receitas = Image.open('controle_de_despesas/add.png')
 img_add_receitas = img_add_receitas.resize((17,17))
 img_add_receitas = ImageTk.PhotoImage(img_add_receitas)
-botao_inserir_receitas = Button(frame_configuracao, image=img_add_receitas, text=' Adicionar'.upper(), width=80, compound=LEFT, anchor=NW, font=('Ivy 7 bold'), bg=cor1, fg=cor0, overrelief=RIDGE)
+botao_inserir_receitas = Button(frame_configuracao,command=inserir_receitas_b, image=img_add_receitas, text=' Adicionar'.upper(), width=80, compound=LEFT, anchor=NW, font=('Ivy 7 bold'), bg=cor1, fg=cor0, overrelief=RIDGE)
 botao_inserir_receitas.place(x=110, y=111)
 
 # operação nova categoria
