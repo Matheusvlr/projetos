@@ -56,6 +56,8 @@ app_img = ImageTk.PhotoImage(app_img)
 app_logo = Label(frame_cima, image=app_img, text=' CONTROLE DE ORÇAMENTO', width=900, compound=LEFT, padx=5, relief=RAISED, anchor=NW, font=('Verdana 20 bold'), bg=cor1, fg=cor4)
 app_logo.place(x=0, y=0)
 
+
+
 # porcentagem
 def porcentagem():
     lab_nome = Label(frame_meio, text='Porcentagem de Gastos', height=1, anchor=NW, font=('verdana 12'), bg=cor1, fg=cor4)
