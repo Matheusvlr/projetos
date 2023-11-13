@@ -83,6 +83,21 @@ def ver_gastos():
 
     return lista_itens
 
+# funcao para dados da tabela
+def tabela():
+    gastos = ver_gastos()
+    receitas = ver_receitas()
+
+    tabela_lista = []
+
+    for i in gastos:
+        tabela_lista.append(i)
+
+    for i in receitas:
+        tabela_lista.append(i)
+
+    return tabela_lista
+
 # funções para dados do gráfico de barra
 def bar_valores():
     # receita total
