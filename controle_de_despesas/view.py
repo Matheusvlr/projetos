@@ -1,5 +1,6 @@
 # importação do SQLite
 import sqlite3 as lite
+import pandas as pd
 
 # conexão
 con = lite.connect('dados.db')
@@ -106,3 +107,33 @@ def bar_valores():
 
     for i in receitas:
         receitas_lista.append(i[3])
+
+    receita_total = sum(receitas_lista)
+    
+    # despesas totais
+    gastos = ver_gastos()
+    gastos_lista = []
+
+    for i in gastos:
+        gastos_lista.append(i[3])
+
+    gasto_total = sum(gastos_lista)
+
+    # saldo total
+    saldo_total = receita_total - gasto_total
+
+    return [receita_total, gasto_total, saldo_total]
+
+# função gráfico pizza
+def pie_valores():
+    gastos = ver_gastos()
+    tabela_lista = []
+
+    for i in gastos:
+        tabela_lista.append(i)
+
+    dataframe = pd.DataFrame(tabela_lista, columns = ['id', 'categoria', 'Data', 'Valor'])
+    dataframe = dataframe.groupby('Categoria')['valor'].sum()
+
+    lista_quantias
+

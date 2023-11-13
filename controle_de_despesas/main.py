@@ -194,7 +194,7 @@ def porcentagem():
 # função para gráfico de barra
 def grafico_barra():
     lista_categorias =  ['Renda', 'Despesas', 'Saldo']
-    lista_valores = [4500, 2300, 7636]
+    lista_valores = bar_valores()
 
     # fazer figura e atribua objetos de eixo
     figura = plt.Figure(figsize=(4, 3.45), dpi=60)
@@ -235,7 +235,7 @@ def grafico_barra():
 
 # função de resumo total
 def resumo():
-    valor = [2000, 1300, 700]
+    valor = bar_valores()
 
     l_linha = Label(frame_meio, text='', width=220, height=1, anchor=NW, font=('Arial 1'), bg='#545454')
     l_linha.place(x=309, y=52)
