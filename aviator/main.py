@@ -1,21 +1,14 @@
 from selenium import webdriver
+from selenium.webdriver.chrome import service
+from webdriver_manager.opera import OperaDriverManager
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
-import time
+from time import sleep
+#from senhas import *
 
+usuario = '//*[@id="email"]'
+senha = '//*[@id="txtPassword"]'
+botao = '//*[@id="loginModal"]/div/div/div/div/app-loginform/div/div[4]/div/div/div[3]/form/div[4]'
 
-driver = webdriver.Firefox()
-driver.get('https://br.betano.com/')
-
-while len(driver.find_elements(By.XPATH, '/html/body/iframe[2]')) == 0:
-    time.sleep(2)
-
-iframe = driver.find_elements(By.XPATH, '/html/body/iframe[2]')
-
-driver.switch_to.frame(iframe)
-
-while len(driver.find_elements(By.XPATH, '/html/body/app-root/app-game/div/div[1]/div[2]/div/div[2]/div[1]/app-stats-widget/div/div[1]')) == 0:
-    time.sleep(2)
-
-elemento = driver.find_elements(By.XPATH, '/html/body/app-root/app-game/div/div[1]/div[2]/div/div[2]/div[1]/app-stats-widget/div/div[1]').text
-
-print(elemento)
