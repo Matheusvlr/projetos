@@ -2,12 +2,12 @@ from future.moves import tkinter
 import math
 
 def click(val):
-    e = entry.get() # obtendo o valor
+    e = entry.get() # Obtendo o valor
     ans = ' '
 
     try:
         if val == 'C':
-            e = e[0:len(e) - 1] # excluindo o último valor inserido
+            e = e[0:len(e) - 1] # Excluindo o último valor inserido
             entry.delete(0, 'end')
             entry.insert(0, e)
             return
@@ -74,3 +74,17 @@ entry = tkinter.Entry(root, font=('arial', 20, 'bold'),
         bg='black', fg='white', bd=10, width=30)
 entry.grid(row=0, column=0, columnspan=8)
 # Lista de botões
+lista_botoes = ['C', 'CE', '√', '+', 'π', 'cos0', 'tan0', 'sin0',
+        '1', '2', '3', '-', '2π', 'cosh', 'tanh', 'sinh', '4', '5', 
+        '6', '*', chr(8731), 'x\u02b8', 'x\u00B3', 'x\u00B2', '7',
+        '8', '9', chr(247), 'In', 'deg', 'rad', 'e', '0', '.', '%',
+        '=', 'log10', '(', ')', 'x!']
+r = 1
+c = 0
+
+# Loop para obter os botões na janela
+for i in lista_botoes:
+    botao = tkinter.Button(root, width=5, height=2, bd=2, text=i,
+                           bg='black', fg='white',font=('arial', 18, 'bold'),
+                           command=lambda button=i: click(button))
+    botao.grid(row=r, column=c, pady=1)
