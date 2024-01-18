@@ -1,4 +1,4 @@
-from future.moves import tkinter
+import tkinter
 import math
 
 def click(val):
@@ -88,3 +88,9 @@ for i in lista_botoes:
                            bg='black', fg='white',font=('arial', 18, 'bold'),
                            command=lambda button=i: click(button))
     botao.grid(row=r, column=c, pady=1)
+    c += 1
+    if c > 7:
+        r += 1
+        c = 0
+
+root.mainloop()
