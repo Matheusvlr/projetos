@@ -64,3 +64,13 @@ def click(val):
         entry.insert(0, ans)
     except SyntaxError:
         pass
+
+root = tkinter.Tk()
+root.title('Calculadora Científica')
+root.geometry('680x486+100+100')
+root.config(bg='black')
+
+entry = tkinter.Entry(root, font=('arial', 20, 'bold'), 
+        bg='black', fg='white', bd=10, width=30)
+entry.grid(row=0, column=0, columnspan=8)
+# Lista de botões
