@@ -85,7 +85,7 @@ c = 0
 # Loop para obter os botões na janela
 for i in lista_botoes:
     botao = tkinter.Button(root, width=5, height=2, bd=2, text=i,
-                           bg='black', fg='white',font=('arial', 18, 'bold'),
+                           bg='white', fg='black',font=('arial', 18, 'bold'),
                            command=lambda button=i: click(button))
     botao.grid(row=r, column=c, pady=1)
     c += 1
