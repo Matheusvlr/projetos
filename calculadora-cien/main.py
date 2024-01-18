@@ -74,10 +74,10 @@ entry = tkinter.Entry(root, font=('arial', 20, 'bold'),
         bg='black', fg='white', bd=10, width=30)
 entry.grid(row=0, column=0, columnspan=8)
 # Lista de botões
-lista_botoes = ['C', 'CE', '√', '+', 'π', 'cos0', 'tan0', 'sin0',
-        '1', '2', '3', '-', '2π', 'cosh', 'tanh', 'sinh', '4', '5', 
-        '6', '*', chr(8731), 'x\u02b8', 'x\u00B3', 'x\u00B2', '7',
-        '8', '9', chr(247), 'In', 'deg', 'rad', 'e', '0', '.', '%',
+lista_botoes = ['C', 'CE', '√', chr(247), 'π', 'cos0', 'tan0', 'sin0',
+        '7', '8', '9', '*', '2π', 'cosh', 'tanh', 'sinh', '4', '5', 
+        '6', '-', chr(8731), 'x\u02b8', 'x\u00B3', 'x\u00B2', '1',
+        '2', '3', '+', 'In', 'deg', 'rad', 'e', '0', '.', '%',
         '=', 'log10', '(', ')', 'x!']
 r = 1
 c = 0
