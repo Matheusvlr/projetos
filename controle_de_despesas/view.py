@@ -135,5 +135,4 @@ def pie_valores():
     dataframe = pd.DataFrame(tabela_lista, columns = ['id', 'categoria', 'Data', 'Valor'])
     dataframe = dataframe.groupby('Categoria')['valor'].sum()
 
-    lista_quantias
-
+   

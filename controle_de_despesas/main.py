@@ -35,7 +35,7 @@ colors = ['#5588bb', '#66bbbb','#99bb55', '#ee9944', '#444466', '#bb5555']
 # criação da janela
 janela = Tk()
 janela.title('controle de orçamento')
-janela.geometry('900x650')
+janela.geometry('900x750')
 janela.configure(background=cor9)
 janela.resizable(width=FALSE, height=FALSE)
 
