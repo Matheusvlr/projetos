@@ -17,7 +17,7 @@ cor = cor4
 
 janela = Tk()
 janela.title('RELÓGIO DIGITAL')
-janela.geometry('440x180')
+janela.geometry('550x250')
 janela.resizable(width=FALSE, height=FALSE)
 janela.configure(bg=cor1)
 
